@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ES6 - Ex1 | Hello World!</title>
+ <script>
+////////////////////////////////
+//    Classes and Objects    //
+//////////////////////////////
+  (function() {
+	  class HelloES6{
+
+			// This is the constructor.
+		  constructor() {
+		    this.greeting="Hello"//creates a class level variable called greeting
+		  }
+		
+			// This is a method.
+		  greet() {
+		    //Notice back ticks and templates
+				this.greeting = `${this.greeting} World!! I may have  as many
+												lines as I
+												want to have!!`
+		    console.log(this.greeting);
+		    
+		  }
+		}
+	  var test = new HelloES6();
+		test.greet();
+
+	})();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+

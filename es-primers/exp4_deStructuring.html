@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ES6 - Ex1 | Hello World!</title>
+ <script>
+////////////////////////////////
+//      Destructuring        //
+//////////////////////////////
+(function() {
+//Ex 1 
+let foo = ['one', 'two', 'three'];
+let test = [true,false,true];
+//let a = foo[0];
+//let b = foo[1];
+//let c = foo[2];
+let [a, b, c] = foo;
+let [x, y, z] = test;
+let [w1, w2, w3, w4] = test;
+let [x1, x2] = foo;
+
+console.log(a); // 'one'
+console.log(y); // false
+console.log(w3); // true
+console.log(w4); // undefined
+console.log(x1); // one
+console.log(x2); // two
+
+//Ex 2 
+let myModule = {
+    drawSquare: function drawSquare(length) { /* implementation */ console.log('['+length+']');},
+    drawCircle: function drawCircle(radius) { /* implementation */ console.log('('+radius+')');},
+    drawText: function drawText(text) { /* implementation */console.log('hello from MyModule'); },
+};
+
+let myModule2 = {
+    drawS: function drawSquare(length) { /* implementation */ console.log('['+length+']');},
+    drawC: function drawCircle(radius) { /* implementation */ console.log('('+radius+')');},
+    drawT: (text) => { /* implementation */console.log(`${text} from MyModule`); },
+};
+//var drawSquare = myModule.drawSquare;
+let {drawSquare, drawText} = myModule;
+
+//console.log(drawSquare(5)); // it will show undefined since the function is not returning anything
+//console.log(drawText('hello'));
+
+drawSquare(5);
+drawText('hello');
+
+let {drawS, drawT} = myModule2;
+drawS(5);
+drawT('hello');
+
+//Ex 4 - default parameters
+let jane = { firstName: 'Jane', lastName: 'Doe'};
+let john = { firstName: 'John', lastName: 'Doe', middleName: 'Smith' }
+function sayName({firstName, lastName, middleName = 'N/A'}) {
+  console.log(`Hello ${firstName} ${middleName} ${lastName}`)  
+}
+
+sayName(jane) // -> Hello Jane N/A Doe
+sayName(john) // -> Helo John Smith Doe
+
+	})();
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+

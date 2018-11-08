@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ES6 - Ex2 | use-strict</title>
+ <script>
+////////////////////////////////
+//       use strict          //
+//////////////////////////////
+ (function() {
+	  //Toggle the below to see the behavior
+	  'use strict';
+
+		//1. Variable usage without declaration
+		//2. Using an object, without declaration
+		//3. Deleting a variable (or object) of function is not allowed.
+		//4. Duplicating of named parameters
+		//5. Future Proofed Keywords
+		//6. You cannout delete functions
+		//7. this Usage
+
+//1. Variable usage without declaration
+/* 
+//x = 3.14; // This will also cause an error because x is not declared
+
+// Variable using without decleartion inside a function.
+myFunction();
+function myFunction() {
+	y = 3.14;   // This will also cause an error because y is not declared
+} 
+*/
+
+
+
+//2. Using an object, without declaration
+/* 
+x = {p1:10, p2:20};  
+*/
+
+
+
+//3. Deleting a variable (or object) of function is not allowed.
+/* 	 var x = 3.14;
+	 delete x;   
+	 function y(p1, p2) {};
+   delete y;  */
+
+
+
+//4. Duplicating of named parameters
+//  function add(x1, x1) {}; 
+
+
+
+
+
+//5. Octal escape and numeric literals
+/*  var x = 010; 
+ var x = "\010"; */
+
+
+
+
+
+//6. Writing/updating  a read-only property
+/* var obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+obj.x = 3.14; // This will cause an error */
+
+
+
+//7. Writing to a get-only property
+/* var obj = {get x() {return 0} };
+obj.x = 3.14; // This will cause an error */ 
+
+
+
+
+//8. Deleting an undeletable property
+//delete Object.prototype; // This will cause an error 
+
+
+
+
+//9. Reserved Keywords, and Keywords reserved for future JavaScript versions can NOT be used as variable names in strict mode.
+/*
+		 Keywords reserved for future JavaScript versions can NOT be used as variable names in strict mode.
+     These are: implements, interface, let, package, private, protected, public, static, yield
+  */
+ 	//var eval = 3.14; 
+	//var arguments = 3.14;
+	// var public = 1500; 
+
+
+	  var myObject = {
+	    foo: 'bar',
+	    someMethod: function() {
+				//return "Test Print";
+				console.log("Test Print")
+	      console.log(this);
+	    }
+	  };
+
+	  function someMethod2() {
+	    console.log(this);
+	  }
+
+	  myObject.someMethod();//success
+	  someMethod2();//undefined
+	  var test2 = myObject.someMethod;
+	  test2();//undefined
+	  
+		var test = myObject.someMethod.bind(myObject);
+		test();//success
+		
+  
+
+	})();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+
